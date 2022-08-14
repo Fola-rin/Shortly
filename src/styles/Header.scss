@@ -1,0 +1,251 @@
+@import "./colors";
+@import "./fonts";
+@import "./mixins";
+
+.header {
+	@include flex-center;
+	background-color: #fff;
+	.header-wrapper {
+		@include flex-center-between;
+		width: 1100px;
+		padding: 50px 0;
+		.logo {
+			display: flex;
+			a {
+				transition: 200ms ease;
+				display: flex;
+
+				&:hover {
+					transition: 200ms ease;
+					opacity: 0.7;
+				}
+			}
+		}
+		.nav-container {
+			flex: 1;
+
+			margin-left: 40px;
+			.nav-wrapper {
+				width: 100%;
+				.nav-mobile-trigger {
+					display: none;
+				}
+				.nav-contents {
+					width: 100%;
+					@include flex-center-between;
+					font-size: 15px;
+					font-weight: 700;
+					a {
+						color: $grayish-violet;
+						transition: 200ms ease;
+						&:hover {
+							color: $dark-violet;
+							transition: 200ms ease;
+						}
+					}
+
+					.nav-links {
+						@include flex-center;
+						a {
+							display: inline-block;
+							padding: 5px;
+							margin-right: 18px;
+
+							&:last-of-type {
+								margin: 0;
+							}
+						}
+					}
+					.cta {
+						@include flex-center;
+						a {
+							&:first-of-type {
+								display: inline-block;
+								padding: 5px;
+								margin-right: 25px;
+							}
+
+							&:last-of-type {
+								color: #fff;
+								background-color: $cyan;
+								border-radius: 500px;
+								padding: 8px 23px;
+								transition: 200ms ease;
+
+								&:hover {
+									opacity: 0.7;
+									transition: 200ms ease;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.header {
+		.header-wrapper {
+			width: 900px;
+			padding: 30px 0;
+		}
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.header {
+		position: relative;
+		.header-wrapper {
+			width: 100%;
+			padding: 30px 50px;
+			.logo {
+				display: flex;
+				a {
+					transition: none;
+					display: flex;
+					&:hover {
+						transition: none;
+						opacity: 1;
+					}
+				}
+			}
+			.nav-container {
+				flex: unset;
+				margin-left: 40px;
+				.nav-wrapper {
+					width: 100%;
+					.nav-mobile-trigger {
+						display: block;
+						button {
+							display: flex;
+							svg {
+								font-size: 32px;
+								color: $grayish-violet;
+							}
+						}
+					}
+					.nav-contents {
+						&.show {
+							height: 341px;
+							padding: 30px;
+							transition: 300ms ease-in-out;
+						}
+						z-index: 1;
+						transition: 300ms ease-in-out;
+						border-radius: 12px;
+						height: 0;
+						overflow: hidden;
+						position: absolute;
+						top: 80%;
+						left: 50%;
+						transform: translate(-50%, 0);
+						flex-direction: column;
+						background-color: $dark-violet;
+						width: 400px;
+						font-size: 16px;
+						a {
+							color: #fff;
+							transition: none;
+							&:hover {
+								color: #fff;
+								transition: none;
+							}
+						}
+
+						.nav-links {
+							flex-direction: column;
+							padding-bottom: 30px;
+							width: 100%;
+							border-bottom: 1px solid $grayish-violet;
+
+							a {
+								display: inline-block;
+								padding: 0;
+								margin: 0;
+								margin-bottom: 30px;
+
+								&:last-of-type {
+									margin: 0;
+								}
+							}
+						}
+						.cta {
+							flex-direction: column;
+							justify-content: center;
+							width: 100%;
+							padding-top: 30px;
+
+							a {
+								&:first-of-type {
+									padding: 0;
+									margin: 0;
+									margin-bottom: 20px;
+								}
+
+								&:last-of-type {
+									color: #fff;
+									background-color: $cyan;
+									border-radius: 500px;
+									padding: 10px 23px;
+									width: 100%;
+									transition: none;
+									text-align: center;
+
+									&:hover {
+										opacity: 1;
+										transition: none;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.header {
+		.header-wrapper {
+			width: 100%;
+			padding: 40px 30px 20px;
+			.nav-container {
+				.nav-wrapper {
+					.nav-contents {
+						top: 95%;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.header {
+		.header-wrapper {
+			width: 100%;
+			padding: 40px 20px 20px;
+			.logo {
+				transform: scale(0.9);
+				transform-origin: left;
+				a {
+					svg {
+					}
+				}
+			}
+			.nav-container {
+				.nav-wrapper {
+					.nav-contents {
+						width: calc(100vw - 40px);
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 375px) {
+}

@@ -1,0 +1,85 @@
+@import "./styles/colors";
+@import "./styles/fonts";
+@import "./styles/mixins";
+
+body {
+	margin: 0;
+	font-family: $font-poppins;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	color: $very-dark-blue;
+}
+
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+		monospace;
+}
+html {
+	scroll-behavior: smooth;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	outline: 0;
+	text-decoration: none;
+	background: none;
+	border: none;
+	letter-spacing: 0.1px;
+}
+::-webkit-scrollbar:horizontal {
+	display: none;
+}
+.transition,
+.transition:hover {
+	transition: 200ms ease;
+}
+
+a {
+	color: inherit;
+}
+button {
+	cursor: pointer;
+	font: inherit;
+}
+input,
+select,
+option {
+	font: inherit;
+	font-size: 16px;
+	font-weight: 500;
+}
+input {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+}
+
+input[type="checkbox"] {
+	appearance: auto;
+	-moz-appearance: auto;
+	-webkit-appearance: auto;
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+	-moz-appearance: textfield;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 500;
+}
+p {
+	line-height: 1.5;
+	font-weight: 500;
+}
