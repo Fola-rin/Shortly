@@ -794,3 +794,15 @@
 		}
 	}
 }
+
+@media screen and (max-width: 375px) {
+	.hero-container {
+		.hero-wrapper {
+			.svg-wrapper {
+				transform: scale(0.62);
+				margin-right: -156px;
+				margin-top: -60px;
+			}
+		}
+	}
+}
