@@ -51,7 +51,8 @@ const Resouces = () => {
 			setError("");
 			if (urlString) {
 				axios
-					.get(`https://api.shrtco.de/v2/shorten?url=${urlString}`)
+					// .get(`https://api.shrtco.de/v2/shorten?url=${urlString}`)
+					.post('https://cleanuri.com/api/v1/shorten', {url:urlString})
 					.then((response) => {
 						setLoading(false);
 						console.log(response.data);
