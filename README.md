@@ -24,13 +24,11 @@ To have a copy of this project on your local machine, run:
 git clone https://github.com/Fola-rin/Shortly.git
 ```
 
-To run the app in development mode, i.e run it locally. Navigate to the project's directory and run:
+To run the app in development mode, you need to have the netlify cli installed on your machine. Once you have installed netlify. Navigate to the project's directory and run:
 
 ```
-npm start
+netlify dev
 ```
-
-Open http://localhost:3000 to view it in the browser.
 
 ### Features
 
