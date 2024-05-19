@@ -50,7 +50,8 @@ Users can:
 - SASS
 - TypeScript
 - React
+- Netlify Funtions
 
 ## Author
 
-- Website - [Oyeleke Afolarin](https://folarin.netlify.app/)
+- Website - [Afolarin Oyeleke](https://afolarin.com/)
