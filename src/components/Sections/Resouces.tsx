@@ -50,39 +50,39 @@ const Resouces = () => {
 			setLoading(true);
 			setError("");
 			if (urlString) {
-				axios
-					// .get(`https://api.shrtco.de/v2/shorten?url=${urlString}`)
-					.post('https://cleanuri.com/api/v1/shorten', {url:urlString})
-					.then((response) => {
-						setLoading(false);
-						console.log(response.data);
-						const data: ApiResponseType = response.data;
-						if (data.ok) {
-							const id = date.getTime();
-							const newData = [
-								{
-									id: id,
-									link: urlString,
-									shortLink: data.result.full_short_link,
-								},
-								...shortenedUrls,
-							];
-							localStorage.setItem("shortenedUrls", JSON.stringify(newData));
-							setShortenedUrls(newData);
-							setUrlString("");
-						} else {
-							setError("An Unknown error occured, please try again later");
-						}
-					})
-					.catch((error: AxiosError<{ error: string }>) => {
-						setLoading(false);
-						setError(
-							error.response?.data?.error
-								? error.response?.data?.error
-								: "An Unknown error occured, please try again later"
-						);
-						console.log(error);
-					});
+				axios({method: 'get',
+				url: `https://fola-shortly.netlify.app/.netlify/functions/get_url?url=${urlString}`,
+			})					
+			.then((response) => {
+				setLoading(false);
+				console.log(response.data);
+				const data = response.data;
+				if (data.ok) {
+					const id = date.getTime();
+					const newData = [
+						{
+							id: id,
+							link: urlString,
+							shortLink: data.data.result_url,
+						},
+						...shortenedUrls,
+					];
+					localStorage.setItem("shortenedUrls", JSON.stringify(newData));
+					setShortenedUrls(newData);
+					setUrlString("");
+				} else {
+					setError("An Unknown error occured, please try again later");
+				}
+			})
+			.catch((error: AxiosError<{ error: string }>) => {
+				setLoading(false);
+				setError(
+					error.response?.data?.error
+						? error.response?.data?.error
+						: "An Unknown error occured, please try again later"
+				);
+				console.log(error);
+			});
 			} else {
 				setLoading(false);
 				setError("Please add a link");
@@ -110,11 +110,15 @@ const Resouces = () => {
 			<section className="shorten-container">
 				<div id="resources" className="shorten-wrapper-padding">
 					<div className="shorten-wrapper">
-						<div className="input-wrapper">
+						<form className="input-wrapper" onSubmit={(e) => {
+							e.preventDefault();
+							shortenUrl();
+							}}>
 							<div className="input">
 								<input
 									placeholder="Shorten a link here..."
 									type="text"
+									name="link"
 									value={urlString}
 									className={error ? `error` : ""}
 									onChange={(e) => {
@@ -125,10 +129,10 @@ const Resouces = () => {
 								/>
 								{error ? <p>{error}</p> : ""}
 							</div>
-							<button onClick={shortenUrl} className={loading ? `loading` : ""}>
+							<button className={loading ? `loading` : ""}>
 								{loading ? "Shortening..." : "Shorten It!"}
 							</button>
-						</div>
+						</form>
 					</div>
 				</div>
 				<div className="shortlink-container">
