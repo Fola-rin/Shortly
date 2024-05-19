@@ -55,7 +55,6 @@ const Resouces = () => {
 			})					
 			.then((response) => {
 				setLoading(false);
-				console.log(response.data);
 				const data = response.data;
 				if (data.ok) {
 					const id = date.getTime();
@@ -81,7 +80,6 @@ const Resouces = () => {
 						? error.response?.data?.error
 						: "An Unknown error occured, please try again later"
 				);
-				console.log(error);
 			});
 			} else {
 				setLoading(false);
@@ -101,8 +99,6 @@ const Resouces = () => {
 			hasRenderedListRef.current = true;
 		}
 	}, [shortenedUrls]);
-
-	console.log(shortenedUrls);
 
 	return (
 		<>

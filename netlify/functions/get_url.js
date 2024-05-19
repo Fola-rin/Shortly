@@ -49,12 +49,10 @@ const getUrl = async (request, context) => {
         );
       }
     } catch (error) {
-      console.log(error);
       // return error message if url is invalid
       return Response.json({ error: 'URL is invalid' }, { status: 500 });
     }
   } catch (error) {
-    console.log(error);
     // Catch any other errors
     return Response.json({ error: 'Failed fetching data' }, { status: 500 });
   }
