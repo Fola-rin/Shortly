@@ -1,3 +1,5 @@
 [dev]
   targetPort = 3000
   port = 3001
+[build]
+  command = "CI=false npm run build"
