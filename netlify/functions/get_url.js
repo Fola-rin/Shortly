@@ -41,7 +41,7 @@ const getUrl = async (request, context) => {
           JSON.stringify({data: data, ok: true}),
           {
             headers: {
-              'Access-Control-Allow-Origin': "https://https://fola-shortly.netlify.app/",
+              'Access-Control-Allow-Origin': `${process.env.REACT_APP_URL}`,
               'Access-Control-Allow-Headers': "Content-Type",
               'Access-Control-Allow-Methods': "GET, POST, OPTIONS"
             }

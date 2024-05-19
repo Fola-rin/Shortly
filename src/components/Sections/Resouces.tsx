@@ -51,7 +51,7 @@ const Resouces = () => {
 			setError("");
 			if (urlString) {
 				axios({method: 'get',
-				url: `https://fola-shortly.netlify.app/.netlify/functions/get_url?url=${urlString}`,
+				url: `${process.env.REACT_APP_URL}.netlify/functions/get_url?url=${urlString}`,
 			})					
 			.then((response) => {
 				setLoading(false);
